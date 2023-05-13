@@ -1,0 +1,20 @@
+services:
+  postgis:
+    image: postgis/postgis:15-3.3-alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: secretpassword 
+    ports:
+      - 5432:5432
+    volumes:
+      - db:/data/db
+  geoserver:
+    image: docker.osgeo.org/geoserver:2.23.0
+    depends_on:
+      - postgis
+    ports:
+      - 5050:8080
+    volumes:
+      - ./data/:/opt/geoserver_data/data
+volumes:
+  db:
