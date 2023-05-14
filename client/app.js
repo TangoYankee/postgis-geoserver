@@ -1,4 +1,6 @@
 const HOST = 'http://localhost:5050';
+const LAB_PATH = 'geoserver/lab_14';
+const LAB_URL = `${HOST}/${LAB_PATH}`;
 const DEFAULT_LAT = 40.7128;
 const DEFAULT_LNG = -74.0060;
 const DEFAULT_ZOOM = 11; 
@@ -30,7 +32,7 @@ const app = () => {
     );
 
     L.tileLayer.wms (
-        `${HOST}/geoserver/lab_14/wms`,
+        `${LAB_URL}/wms`,
         {
             crs: crs,
             layers: 'lab_14:NYClandcover2010',
