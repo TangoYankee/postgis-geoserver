@@ -13,7 +13,10 @@ services:
     depends_on:
       - postgis
     environment:
-      CORS_ENABLED: true
+      - CORS_ENABLED=true
+      - CORS_ALLOWED_ORIGINS=*
+      - CORS_ALLOWED_METHODS=GET,POST,PUT,DELETE,HEAD,OPTIONS
+      - CORS_ALLOWED_HEADERS=*
     ports:
       - 5050:8080
     volumes:
